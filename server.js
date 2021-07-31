@@ -20,23 +20,25 @@ app.use(cors());
 app.use(express.static('website'));
 
 // Setup Server
-const port= 3000;
-const server=app.listen(port,()=>{
+const port= 3000;    //the server is running on port 3000
+const server=app.listen(port,()=>{                  // to make the server running 
     console.log(`server running on localhost:${port}`);
 }
 );
 
-app.get(("/all"),(req,res)=>{
+app.get(("/all"),(req,res)=>{       //getting all the data from the server
     res.send(projectData);
-    console.log("hello");
+    console.log(projectData);
 });
 
-app.get(("/add"),(req,res)=>{
-
-    // projectData.temp=req.body.temp;
-    // projectData.date=req.body.date;
-    // projectData.userResponse=req.body.userResponse;
-    res.send(req.body);
-    res.send("good");
-    console.log("test");
+app.post(("/add"),(req,res)=>{    //post the data comming from the client side to the server
+    console.log(req.body);
+    newData={                  //new data coming from the apps
+        date:req.body.date,
+        temp:req.body.temp,
+        userResponse:req.body.feelings
+    }
+    projectData.push(newDate);   //push the data coming from the client side to the projectData
+    res.send(projectData);
+    console.log(projectData);
 });
