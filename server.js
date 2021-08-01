@@ -31,14 +31,15 @@ app.get(("/all"),(req,res)=>{       //getting all the data from the server
     console.log(projectData);
 });
 
-app.post(("/add"),(req,res)=>{    //post the data comming from the client side to the server
+app.post(("/addData"),(req,res)=>{    //post the data comming from the client side to the server
     console.log(req.body);
     newData={                  //new data coming from the apps
-        date:req.body.date,
+        
         temp:req.body.temp,
-        userResponse:req.body.feelings
+        date:req.body.date,
+        feelings:req.body.feelings
     }
-    projectData.push(newDate);   //push the data coming from the client side to the projectData
+    projectData.push(newData);   //push the data coming from the client side to the projectData
     res.send(projectData);
     console.log(projectData);
 });
