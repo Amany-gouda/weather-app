@@ -17,12 +17,12 @@ app.use(bodyParser.json());
 const cors=require("cors");
 app.use(cors());
 // Initialize the main project folder
-app.use(express.static('website'));
+app.use(express.static('website')); //to connect the 
 
 // Setup Server
 const port= 3000;    //the server is running on port 3000
 const server=app.listen(port,()=>{                  // to make the server running 
-    console.log(`server running on localhost:${port}`);
+    console.log(`server running on localhost:${port}`); //feedback that the server is running 
 }
 );
 
@@ -32,14 +32,10 @@ app.get(("/all"),(req,res)=>{       //getting all the data from the server
 });
 
 app.post(("/addData"),(req,res)=>{    //post the data comming from the client side to the server
-    console.log(req.body);
     newData={                  //new data coming from the apps
-        
-        temp:req.body.temp,
-        date:req.body.date,
-        feelings:req.body.feelings
+        temp:req.body.temp,    //the temp we get from the api of OpenWeatherMap.com  
+        date:req.body.date,   
+        feelings:req.body.feelings // the feelings of the user 
     }
-    projectData.push(newData);   //push the data coming from the client side to the projectData
-    res.send(projectData);
-    console.log(projectData);
+    projectData=newData;    //put all of these data into the projectData object
 });
