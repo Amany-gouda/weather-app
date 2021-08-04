@@ -1,8 +1,13 @@
 # Weather-Journal App Project
+
 ##introduction
+
 this weather journal app used to give the user data about the current temprature ,the date and the feelings of the user.
+
 ##Instructions
+
 ###server side
+
 * first i build the server by installing the  **node** and **Express** then the **cors** and **body-parser** packages then include these packages in server.js file.
  * then running the server using app.listen 
  * after that i creat a get route with a callback function to return the javascript object **projectData**.
